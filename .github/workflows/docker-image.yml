@@ -1,0 +1,19 @@
+name: API6-IA CI
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag api6-ia
+
+    - name: Run the Docker image
+      run: docker run api6-ia
