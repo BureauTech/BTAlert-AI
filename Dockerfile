@@ -37,4 +37,4 @@ RUN echo "**** install dev packages ****" && \
     mkdir -p "$CONDA_DIR/locks" && \
     chmod 777 "$CONDA_DIR/locks"
 
-CMD ["python", "./src/app.py"]
+CMD ["python", "./src/main/app.py"]
