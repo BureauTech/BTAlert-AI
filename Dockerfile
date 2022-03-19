@@ -25,6 +25,7 @@ RUN echo "**** install dev packages ****" && \
     echo "**** setup Miniconda ****" && \
     conda update --all --yes && \
     conda config --set auto_update_conda False && \
+    conda install --file requirements.txt --yes && \
     \
     echo "**** cleanup ****" && \
     apk del --purge .build-dependencies && \
@@ -35,7 +36,5 @@ RUN echo "**** install dev packages ****" && \
     echo "**** finalize ****" && \
     mkdir -p "$CONDA_DIR/locks" && \
     chmod 777 "$CONDA_DIR/locks"
-
-RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["python", "./src/app.py"]
