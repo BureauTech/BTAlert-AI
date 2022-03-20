@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-glibc:alpine-3.14
 
-WORKDIR /usr/src/btalert-ia
+WORKDIR /usr/src/btalert-ai
 COPY . .
 
 ARG CONDA_VERSION="4.7.12.1"

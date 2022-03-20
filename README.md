@@ -1,7 +1,7 @@
-# BTAlert-IA
+# BTAlert-AI
 
-[![Python Conda CI](https://github.com/BureauTech/BTAlert-IA/actions/workflows/python-conda.yml/badge.svg)](https://github.com/BureauTech/BTAlert-IA/actions/workflows/python-conda.yml)
-[![Docker Image CI](https://github.com/BureauTech/BTAlert-IA/actions/workflows/docker-image.yml/badge.svg)](https://github.com/BureauTech/BTAlert-IA/actions/workflows/docker-image.yml)
+[![Python Conda CI](https://github.com/BureauTech/BTAlert-AI/actions/workflows/python-conda.yml/badge.svg)](https://github.com/BureauTech/BTAlert-AI/actions/workflows/python-conda.yml)
+[![Docker Image CI](https://github.com/BureauTech/BTAlert-AI/actions/workflows/docker-image.yml/badge.svg)](https://github.com/BureauTech/BTAlert-AI/actions/workflows/docker-image.yml)
 
 ## How to install
 
@@ -9,9 +9,9 @@
 
 To make it run on your machine without installing everything locally, you can simply run it via docker image, by following the commands below.
 
-```docker build -t btalert-ia .```
+```docker build -t btalert-ai .```
 
-```docker run btalert-ia```
+```docker run btalert-ai```
 
 NOTE: It's important to have [docker installed](https://docs.docker.com/engine/install/) on your machine.
 
