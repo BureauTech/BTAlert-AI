@@ -10,6 +10,7 @@ ARG CONDA_DIR="/opt/conda"
 ENV PATH="$CONDA_DIR/bin:$PATH"
 ENV PYTHONDONTWRITEBYTECODE=1
 
+RUN apk update && apk add bash && bash env.sh prod
 RUN echo "**** install dev packages ****" && \
     apk add --no-cache --virtual .build-dependencies bash ca-certificates wget && \
     \
@@ -24,6 +25,7 @@ RUN echo "**** install dev packages ****" && \
     \
     echo "**** setup Miniconda ****" && \
     conda update --all --yes && \
+    conda config --add channels conda-forge && \
     conda config --set auto_update_conda False && \
     conda install --file requirements.txt --yes && \
     \
@@ -37,4 +39,5 @@ RUN echo "**** install dev packages ****" && \
     mkdir -p "$CONDA_DIR/locks" && \
     chmod 777 "$CONDA_DIR/locks"
 
-CMD ["python", "./src/main/app.py"]
+WORKDIR /usr/src/btalert-ai/src
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]

@@ -1,0 +1,8 @@
+FROM mariadb:10.3
+
+ENV MYSQL_ROOT_PASSWORD=mariadb
+ENV MYSQL_PASSWORD=mariadb
+ENV MYSQL_USER=mariadb
+ENV MYSQL_DATABASE=btalert
+
+COPY src/resources/ddl-database.sql /docker-entrypoint-initdb.d/

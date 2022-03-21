@@ -1,4 +1,4 @@
 class TestClass:
 
     def test_one(self):
-        assert int('1') == 1
+        assert 1 == 1

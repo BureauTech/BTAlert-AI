@@ -21,8 +21,8 @@ In case you want to run it in your machine without using docker, you must run th
 
 ```conda install --file requirements.txt --yes```
 
-```conda run python src/main/app.py```
+```conda run python src/app.py```
 
 ### Prerequisites:
 
-You must have installed [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and [Python 3.8.10](https://www.python.org/downloads/release/python-3810/) previously.
+You must have installed [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and [Python 3.7.11](https://www.python.org/downloads/release/python-3711/) previously.
