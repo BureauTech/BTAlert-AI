@@ -34,7 +34,7 @@ jobs:
       - name: Set env
         run: |
           bash env.sh prod
-          mysql -u mariadb -p mariadb -h 127.0.0.1 -D btalert < ./src/resources/ddl-database.sql
+          mysql -u mariadb -p mariadb -h mariadb -D btalert < ./src/resources/ddl-database.sql
 
       - name: Add conda to system path
         run: echo $CONDA/bin >> $GITHUB_PATH
