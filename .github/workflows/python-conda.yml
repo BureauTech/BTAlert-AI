@@ -31,10 +31,11 @@ jobs:
         with:
           python-version: 3.7.11
 
-      - name: Set env
+      - name: Set up env
         run: |
           bash env.sh prod
-          mysql -u mariadb -p mariadb -h mariadb -D btalert < ./src/resources/ddl-database.sql
+          sudo apt-get install -y mysql-client
+          mysql --host 127.0.0.1 --port 3306 -uroot -ppassword -D btalert < ./src/resources/ddl-database.sql
 
       - name: Add conda to system path
         run: echo $CONDA/bin >> $GITHUB_PATH
