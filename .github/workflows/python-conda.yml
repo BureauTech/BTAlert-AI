@@ -34,6 +34,7 @@ jobs:
       - name: Set env
         run: |
           bash env.sh prod
+          sudo /etc/init.d/mysql start
           mysql -D btalert -e 'SELECT VERSION()'
           mysql -D btalert < ./src/resources/ddl-database.sql
 
