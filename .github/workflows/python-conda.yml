@@ -13,7 +13,7 @@ jobs:
       max-parallel: 5
 
     services:
-      postgres:
+      mariadb:
         image: mariadb:10.3
         env:
           MYSQL_ROOT_PASSWORD: mariadb
