@@ -16,9 +16,7 @@ jobs:
       mariadb:
         image: mariadb:10.3
         env:
-          MYSQL_ROOT_PASSWORD: mariadb
-          MYSQL_PASSWORD: mariadb
-          MYSQL_USER: mariadb
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: btalert
         ports:
           - 3306:3306
@@ -34,8 +32,7 @@ jobs:
       - name: Set up env
         run: |
           bash env.sh prod
-          sudo apt-get install -y mysql-client
-          mysql --host 127.0.0.1 --port 3306 -uroot -ppassword -D btalert < ./src/resources/ddl-database.sql
+          mysql --host 127.0.0.1 --port 3306 -uroot btalert < ./src/resources/ddl-database.sql
 
       - name: Add conda to system path
         run: echo $CONDA/bin >> $GITHUB_PATH
