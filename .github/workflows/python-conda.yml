@@ -22,6 +22,7 @@ jobs:
           MYSQL_DATABASE: btalert
         ports:
           - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
 
     steps:
       - uses: actions/checkout@v2
@@ -33,7 +34,8 @@ jobs:
       - name: Set env
         run: |
           bash env.sh prod
-          mysql --user="mariadb" --database="btalert" --password="mariadb" < ./src/resources/ddl-database.sql
+          mysql -D btalert -e 'SELECT VERSION()'
+          mysql -D btalert < ./src/resources/ddl-database.sql
 
       - name: Add conda to system path
         run: echo $CONDA/bin >> $GITHUB_PATH
