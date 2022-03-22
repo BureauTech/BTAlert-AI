@@ -33,7 +33,7 @@ jobs:
       - name: Set env
         run: |
           bash env.sh prod
-          mysql --host="mariadb" --user="mariadb" --database="btalert" --password="mariadb" < ./src/resources/ddl-database.sql
+          mysql --user="mariadb" --database="btalert" --password="mariadb" < ./src/resources/ddl-database.sql
 
       - name: Add conda to system path
         run: echo $CONDA/bin >> $GITHUB_PATH
