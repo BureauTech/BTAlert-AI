@@ -9,9 +9,7 @@
 
 To make it run on your machine without installing everything locally, you can simply run it via docker image, by following the commands below.
 
-```docker build -t btalert-ai .```
-
-```docker run btalert-ai```
+```docker compose up``
 
 NOTE: It's important to have [docker installed](https://docs.docker.com/engine/install/) on your machine.
 
