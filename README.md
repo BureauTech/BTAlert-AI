@@ -19,10 +19,22 @@ NOTE: It's important to have [docker installed](https://docs.docker.com/engine/i
 
 In case you want to run it in your machine without using docker, you must run the following commands.
 
+For development environment:
+
+```bash env.sh```
+
+```conda install --file requirements.txt --yes```
+
+```conda run python src/app.py```
+
+For production environment:
+
+```bash env.sh prod```
+
 ```conda install --file requirements.txt --yes```
 
 ```conda run python src/app.py```
 
 ### Prerequisites:
 
-You must have installed [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and [Python 3.7.11](https://www.python.org/downloads/release/python-3711/) previously.
+You must have installed [Miniconda](https://docs.conda.io/en/latest/miniconda.html), [Python 3.7.11](https://www.python.org/downloads/release/python-3711/) and [MariaDB 10.3.x](https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.3.34) previously.
