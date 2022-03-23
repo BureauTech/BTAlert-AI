@@ -9,7 +9,7 @@
 
 To make it run on your machine without installing everything locally, you can simply run it via docker image, by following the commands below.
 
-```docker compose up``
+```docker compose up```
 
 NOTE: It's important to have [docker installed](https://docs.docker.com/engine/install/) on your machine.
 
@@ -31,7 +31,9 @@ For production environment:
 
 ```conda install --file requirements.txt --yes```
 
-```conda run python src/app.py```
+Go to the ```src``` directory and run:
+
+```gunicorn --bind 0.0.0.0:5000 app:app```
 
 ### Prerequisites:
 
