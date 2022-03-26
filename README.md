@@ -1,7 +1,8 @@
-# BTAlert-AI
-
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/BureauTech/BTAlert-AI/)
 [![Python Conda CI](https://github.com/BureauTech/BTAlert-AI/actions/workflows/python-conda.yml/badge.svg)](https://github.com/BureauTech/BTAlert-AI/actions/workflows/python-conda.yml)
 [![Docker Image CI](https://github.com/BureauTech/BTAlert-AI/actions/workflows/docker-image.yml/badge.svg)](https://github.com/BureauTech/BTAlert-AI/actions/workflows/docker-image.yml)
+
+# BTAlert-AI
 
 ## How to install
 
