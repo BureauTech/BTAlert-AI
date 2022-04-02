@@ -10,7 +10,7 @@ ARG CONDA_DIR="/opt/conda"
 ENV PATH="$CONDA_DIR/bin:$PATH"
 ENV PYTHONDONTWRITEBYTECODE=1
 
-RUN apk update && apk add bash && bash env.sh prod
+RUN apk update && apk add bash && bash setup-env.sh prod
 RUN echo "**** install dev packages ****" && \
     apk add --no-cache --virtual .build-dependencies bash ca-certificates wget && \
     \

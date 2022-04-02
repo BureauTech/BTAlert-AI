@@ -31,7 +31,7 @@ jobs:
 
       - name: Set up env
         run: |
-          bash env.sh prod
+          bash setup-env.sh docker
           mysql --host 127.0.0.1 --port 3306 -uroot btalert < ./src/resources/ddl-database.sql
 
       - name: Add conda to system path

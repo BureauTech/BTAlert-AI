@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   mariadb:
-    build: 
+    build:
       context: .
       dockerfile: dockerfile.mariadb
     ports:
@@ -10,13 +10,13 @@ services:
     networks:
       - mariadb
 
-  btalert-ai:
-    container_name: btalert-ai
-    build: 
+  btalert_ai:
+    container_name: btalert_ai
+    build:
       context: .
       dockerfile: dockerfile.conda
     ports:
-      - '5000:5000'
+      - 5000:5000
     depends_on:
       - mariadb
     networks:

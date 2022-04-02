@@ -20,7 +20,7 @@ In case you want to run it in your machine without using docker, you must run th
 
 For development environment:
 
-```bash env.sh```
+```bash setup-env.sh```
 
 ```conda install --file requirements.txt --yes```
 
@@ -28,7 +28,7 @@ For development environment:
 
 For production environment:
 
-```bash env.sh prod```
+```bash setup-env.sh docker```
 
 ```conda install --file requirements.txt --yes```
 
