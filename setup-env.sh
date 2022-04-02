@@ -15,5 +15,5 @@ then
     echo "env" $ENV_TYPE": successfully configured!"
 else
     echo "env" $ENV_TYPE": error configuring environment! check if you chose a valid env."
-    echo "available envs: dev, prod."
+    echo "available envs: dev, docker."
 fi
