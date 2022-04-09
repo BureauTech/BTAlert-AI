@@ -22,19 +22,11 @@ For development environment:
 
 ```bash setup-env.sh```
 
-```conda install --file requirements.txt --yes```
+```pip install -r requirements-pip.txt```
+
+```conda install --file requirements-conda.txt --yes```
 
 ```conda run python src/app.py```
-
-For production environment:
-
-```bash setup-env.sh docker```
-
-```conda install --file requirements.txt --yes```
-
-Go to the ```src``` directory and run:
-
-```gunicorn --bind 0.0.0.0:5000 app:app```
 
 ### Prerequisites:
 

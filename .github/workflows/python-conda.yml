@@ -9,8 +9,6 @@ on:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 5
 
     services:
       mariadb:
@@ -39,8 +37,9 @@ jobs:
 
       - name: Install dependencies
         run: |
+          pip install -r requirements-pip.txt
           conda config --add channels conda-forge
-          conda install --file requirements.txt --yes
+          conda install --file requirements-conda.txt --yes
 
       - name: Lint with flake8
         run: |

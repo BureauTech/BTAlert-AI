@@ -10,7 +10,7 @@ ARG CONDA_DIR="/opt/conda"
 ENV PATH="$CONDA_DIR/bin:$PATH"
 ENV PYTHONDONTWRITEBYTECODE=1
 
-RUN apk update && apk add bash && bash setup-env.sh prod
+RUN apk update && apk add bash && bash setup-env.sh docker
 RUN echo "**** install dev packages ****" && \
     apk add --no-cache --virtual .build-dependencies bash ca-certificates wget && \
     \
@@ -27,7 +27,8 @@ RUN echo "**** install dev packages ****" && \
     conda update --all --yes && \
     conda config --add channels conda-forge && \
     conda config --set auto_update_conda False && \
-    conda install --file requirements.txt --yes && \
+    pip install -r requirements-pip.txt && \
+    conda install --file requirements-conda.txt --yes && \
     \
     echo "**** cleanup ****" && \
     apk del --purge .build-dependencies && \

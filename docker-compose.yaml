@@ -8,10 +8,10 @@ services:
     ports:
       - 3307:3306
     networks:
-      - mariadb
+      - backend_network
 
-  btalert_ai:
-    container_name: btalert_ai
+  btalert-ai:
+    container_name: btalert-ai
     build:
       context: .
       dockerfile: dockerfile.conda
@@ -20,8 +20,8 @@ services:
     depends_on:
       - mariadb
     networks:
-      - mariadb
+      - backend_network
 
 networks:
-  mariadb:
-    name: mariadb
+  backend_network:
+    name: backend_network
