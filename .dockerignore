@@ -10,5 +10,3 @@ docker-compose.yml
 dockerfile.*
 LICENSE
 README.md
-
-!.keep
