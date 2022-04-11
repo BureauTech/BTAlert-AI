@@ -1,16 +1,27 @@
-from flask import Flask
+import os
 
-from entities.base import base
-from controllers.test_controller import test_controller
-from config import URL_PREFIX
+from flask import Flask
+from dotenv import load_dotenv
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
+from prometheus_client import make_wsgi_app, Gauge
+from prometheus_api_client import PrometheusConnect
+
+
+load_dotenv()
 
 
 app = Flask(__name__)
+prom = PrometheusConnect(url=os.getenv('PROMETHEUS_URL'), disable_ssl=True)
 
-app.config.from_object('config')
-app.register_blueprint(test_controller, url_prefix=f'{URL_PREFIX}/test')
+btalert_ai_prediction = Gauge('btalert_ai_prediction', 'estimated time in hours for the system to be down')
+btalert_ai_prediction.set(1)
 
-base.init_app(app)
+btalert_ai_total_metrics = Gauge('btalert_ai_total_metrics', 'total of metrics available on promethus')
+btalert_ai_total_metrics.set(len(prom.all_metrics()))
+
+app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
+    '/metrics': make_wsgi_app()
+})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run('localhost', 5050)

@@ -1,6 +1,6 @@
 [![License](http://img.shields.io/github/license/BureauTech/BTAlert-AI)](https://github.com/BureauTech/BTAlert-AI/blob/main/LICENSE)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/BureauTech/BTAlert-AI/)
-[![Python Conda CI](https://github.com/BureauTech/BTAlert-AI/actions/workflows/python-conda.yml/badge.svg)](https://github.com/BureauTech/BTAlert-AI/actions/workflows/python-conda.yml)
+[![Python CI](https://github.com/BureauTech/BTAlert-AI/actions/workflows/python.yml/badge.svg)](https://github.com/BureauTech/BTAlert-AI/actions/workflows/python.yml)
 [![Docker Image CI](https://github.com/BureauTech/BTAlert-AI/actions/workflows/docker-image.yml/badge.svg)](https://github.com/BureauTech/BTAlert-AI/actions/workflows/docker-image.yml)
 
 # BTAlert-AI
@@ -23,12 +23,10 @@ For development environment:
 
 ```bash setup-env.sh```
 
-```pip install -r requirements-pip.txt```
+```pip install -r requirements.txt```
 
-```conda install --file requirements-conda.txt --yes```
-
-```conda run python src/app.py```
+```python src/app.py```
 
 ### Prerequisites:
 
-You must have installed [Miniconda](https://docs.conda.io/en/latest/miniconda.html), [Python 3.7.11](https://www.python.org/downloads/release/python-3711/) and [MariaDB 10.3.x](https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.3.34) previously.
+You must have installed [Python 3.7.11](https://www.python.org/downloads/release/python-3711/) previously.
