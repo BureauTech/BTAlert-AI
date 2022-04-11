@@ -6,7 +6,7 @@
 
 .env
 .gitignore
-docker-compose.yaml
+docker-compose.yml
 dockerfile.*
 LICENSE
 README.md
