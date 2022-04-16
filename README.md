@@ -5,6 +5,8 @@
 
 # BTAlert-AI
 
+BTAlert-AI is an application based on Machine Learning to monitor and predict application outages.
+
 ## How to install
 
 ### Docker Image
