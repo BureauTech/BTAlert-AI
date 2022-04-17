@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+
+  btalert-ai:
+    container_name: btalert-ai
+    build:
+      context: .
+      dockerfile: dockerfile.python
+    ports:
+      - 5050:5050
+    networks:
+      - backend_network
+
+networks:
+  backend_network:
+    name: backend_network
