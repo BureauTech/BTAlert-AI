@@ -1,5 +1,5 @@
-import time
-from random import randint
+from time import time
+from random import randint, random
 
 from locust import HttpUser, task, between
 
@@ -15,16 +15,19 @@ class QuickstartUser(HttpUser):
     def on_stop(self) -> None:
         self.client.get('/logout')
 
+    @staticmethod
+    def random_user() -> dict:
+        return {
+            'useName': f'user-{time()}-{random()}',
+            'useEmail': f'user-{time()}-{random()}@bureautech.com',
+            'usePhone': f'{time()}-{random()}',
+            'usePassword': f'{time()}-{random()}'
+        }
+
     @task(2)
     def create_user(self) -> dict:
-        json = {
-            'useName': f'CreateUser{time.time()}',
-            'useEmail': f'CreateUser{time.time()}@bureautech.com',
-            'usePhone': time.time(),
-            'usePassword': time.time()
-        }
         cookies = self.client.cookies.get_dict()
-        response = self.client.post('/user', json=json, cookies=cookies)
+        response = self.client.post('/user', json=self.random_user(), cookies=cookies)
         if response.status_code != 200:
             return None
         return response.json()
@@ -55,15 +58,9 @@ class QuickstartUser(HttpUser):
         user = self.create_user()
         if user is None:
             return None
-        json = {
-            'useName': f'UpdateTest{time.time()}',
-            'useEmail': f'UpdateTest{time.time()}@bureautech.com',
-            'usePhone': time.time(),
-            'usePassword': time.time()
-        }
         use_cod = user['data']['useCod']
         cookies = self.client.cookies.get_dict()
-        response = self.client.put(f'/user/{use_cod}', json=json, cookies=cookies)
+        response = self.client.put(f'/user/{use_cod}', json=self.random_user(), cookies=cookies)
         if response.status_code != 200:
             return None
         return response.json()
