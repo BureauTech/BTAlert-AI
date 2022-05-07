@@ -17,14 +17,14 @@ class Collector:
 
     def __update_metrics(self) -> None:
         requests_per_second = round(float(self.prom.get_current_metric_value(
-            '(idelta(nginx_vts_server_requests_total{code="total", host="*"}[30s]) - 1) / 15',
+            '(idelta(nginx_vts_server_requests_total{code="total", host="*"}[1m]) - 1) / 15',
         )[0]['value'][1]), 2)
 
         if not requests_per_second:
             failed_requests_percent = 0
         else:
             failed_requests_percent = round(float(self.prom.get_current_metric_value(
-                'sum(idelta(nginx_vts_server_requests_total{code=~"4xx|5xx", host="*"}[30s])) / 15'
+                'sum(idelta(nginx_vts_server_requests_total{code=~"4xx|5xx", host="*"}[1m])) / 15'
             )[0]['value'][1]), 2) / requests_per_second * 100
 
         Config.BTALERT_REQUESTS_PER_SECOND.set(requests_per_second)
