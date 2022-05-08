@@ -2,9 +2,9 @@ from flask import Flask, Response
 
 from metrics.collector import Collector
 
-collector = Collector()
 
 app = Flask(__name__)
+collector = Collector()
 
 @app.route('/metrics')
 def get_metrics():
