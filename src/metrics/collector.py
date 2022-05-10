@@ -13,7 +13,8 @@ load_dotenv()
 class Collector:
 
     def __init__(self) -> None:
-        self.prom = PrometheusConnect(url=os.getenv('PROMETHEUS_URL'), disable_ssl=True)
+        self.prom = PrometheusConnect(os.getenv('PROMETHEUS_URL'), disable_ssl=True)
+        Metric.BTALERT_INFO.info({'version': 'v1.0.0'})
 
     def get_metrics(self) -> bytes:
         requests_per_second = None

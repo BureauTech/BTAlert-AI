@@ -1,7 +1,12 @@
-from prometheus_client import Gauge
+from prometheus_client import Gauge, Info
 
 
 class Metric:
+
+    BTALERT_INFO = Info(
+        name='btalert_info',
+        documentation='Infos about btalert'
+    )
 
     BTALERT_REQUESTS_PER_SECOND = Gauge(
         name='btalert_requests_per_second',
