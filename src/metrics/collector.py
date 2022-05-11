@@ -14,9 +14,10 @@ class Collector:
 
     def __init__(self) -> None:
         self.prom = PrometheusConnect(os.getenv('PROMETHEUS_URL'), disable_ssl=True)
-        Metric.BTALERT_INFO.info({'version': 'v1.0.0'})
 
     def get_metrics(self) -> bytes:
+        Metric.BTALERT_INFO.info({'version': 'v1.0.0'})
+
         requests_per_second = None
         data = self.prom.get_current_metric_value(
             '(idelta(nginx_vts_server_requests_total{code="total", host="*"}[1m]) - 1) / 15'

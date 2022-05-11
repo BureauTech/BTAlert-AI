@@ -3,6 +3,8 @@
 /.github
 /doc
 /venv
+/locust
+/jupyter
 
 .env
 .gitignore
