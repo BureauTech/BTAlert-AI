@@ -79,6 +79,7 @@ requests~=2.27.1
 roundrobin~=0.0.2
 scikit-learn~=1.0.2
 scipy~=1.7.3
+seaborn
 Send2Trash~=1.8.0
 six~=1.16.0
 skforecast~=0.4.3
