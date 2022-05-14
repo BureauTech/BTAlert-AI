@@ -2,6 +2,7 @@ __pycache__
 .pytest_cache
 .ipynb_checkpoints
 .env
+requirements.txt
 venv
 
 !.keep

@@ -1,13 +1,9 @@
 import os
 
-from dotenv import load_dotenv
 from prometheus_client import generate_latest
 from prometheus_api_client import PrometheusConnect
 
 from metrics.config import Metric
-
-
-load_dotenv()
 
 
 class Collector:
@@ -32,6 +28,6 @@ class Collector:
         )
         if data and requests_per_second:
             failed_requests_percent = round(float(data[0]['value'][1]) / requests_per_second * 100, 2)
-            Metric.BTALERT_FAILED_REQUESTS_PERCENT.set(failed_requests_percent)
+            Metric.BTALERT_FAILED_REQUESTS_PERCENT.set(min(100, failed_requests_percent))
 
         return generate_latest()

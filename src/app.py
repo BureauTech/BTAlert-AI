@@ -1,6 +1,10 @@
+from dotenv import load_dotenv
 from flask import Flask, Response
 
 from metrics.collector import Collector
+
+
+load_dotenv()
 
 
 app = Flask(__name__)

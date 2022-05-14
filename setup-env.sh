@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ENV_TYPE=${1:-"dev"}
-ENV_PATH="./src/resources/"
+ENV_PATH="./resources"
 
 if [ $# -eq 0 ]
 then
@@ -12,6 +12,8 @@ if test -f "$ENV_PATH/$ENV_TYPE.env"
 then
     echo 'setting environment variables'
     echo -n > .env && cat $ENV_PATH/$ENV_TYPE.env >> .env
+    echo 'setting requirements file'
+    echo -n > requirements.txt && cat $ENV_PATH/$ENV_TYPE.txt >> requirements.txt
     echo "env" $ENV_TYPE": successfully configured!"
 else
     echo "env" $ENV_TYPE": error configuring environment! check if you chose a valid env."
