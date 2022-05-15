@@ -2,7 +2,9 @@ import os
 from base64 import b64decode
 
 from slack_sdk.webhook import WebhookClient
-from slack.config import AlertTemplate
+from slack_sdk.webhook.webhook_response import WebhookResponse
+
+from slack.alerts.alert import Alert
 
 
 class Messenger:
@@ -12,5 +14,5 @@ class Messenger:
             b64decode(os.getenv('SLACK_TOKEN')).decode().strip()
         )
 
-    def send_alert(self) -> None:
-        self.webhook.send_dict(AlertTemplate.get_dict())
+    def send_alert(self, alert: Alert) -> WebhookResponse:
+        return self.webhook.send_dict(alert.get_dict())
