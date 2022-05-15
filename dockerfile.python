@@ -1,7 +1,10 @@
 FROM python:3.7.11
 WORKDIR /usr/src/btalert-ai
 
-COPY . .
+COPY src src
+COPY setup-env.sh setup-env.sh
+COPY resources/docker.* resources/
+
 RUN bash setup-env.sh docker
 RUN pip install -r requirements.txt
 

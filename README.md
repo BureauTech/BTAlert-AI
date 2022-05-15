@@ -31,7 +31,7 @@ For development environment:
 
 ### Prerequisites:
 
-You must have installed [Python 3.7.11](https://www.python.org/downloads/release/python-3711/) previously.
+You must have installed [Python 3.7.9](https://www.python.org/downloads/release/python-379/) previously.
 
 # Authors
 
