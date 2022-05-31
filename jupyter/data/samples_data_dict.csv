@@ -1,0 +1,8 @@
+column;type;range;example;description
+timestamp;int64;[0,+Inf];1652266207;timestamp when metrics were collected
+req_failed;float64;[0,1];0.53;percentage of requests that failed
+request_per_sec;float64;[0,+Inf];32.25;requests per second sent to the server
+lock_count;float64;[0,+Inf];3.0;number of locks in the database
+cpu_percent;float64;[0,1];0.95;cpu percentage spent
+memory_percent;float64;[0,1];0.84;memory percentage spent
+system_health;float64;[0,1];0.25;server's ability to respond to requests correctly
