@@ -7,11 +7,11 @@
 
 BTAlert-AI is an application based on Machine Learning to monitor and predict application outages.
 
-## Check Data Preparation
+## Data Preparation
 
 Our data preparation is [available here](https://colab.research.google.com/drive/1TjYjSaaQG8uydJfeuYG2cL9_lA4f2tr-?usp=sharing)
 
-## Check Data Analysis
+## Data Analysis
 
 Our data analysis is [available here](https://github.com/BureauTech/BTAlert-AI/blob/main/jupyter/notebook.ipynb)
 
