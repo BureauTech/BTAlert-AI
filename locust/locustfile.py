@@ -1,7 +1,7 @@
-from time import time
 from random import randint, random
+from time import time
 
-from locust import HttpUser, task, between
+from locust import HttpUser, between, task
 
 
 class QuickstartUser(HttpUser):
@@ -27,7 +27,8 @@ class QuickstartUser(HttpUser):
     @task(2)
     def create_user(self) -> dict:
         cookies = self.client.cookies.get_dict()
-        response = self.client.post('/user', json=self.random_user(), cookies=cookies)
+        response = self.client.post(
+            '/user', json=self.random_user(), cookies=cookies)
         if response.status_code != 200:
             return None
         return response.json()
@@ -53,6 +54,15 @@ class QuickstartUser(HttpUser):
             return None
         return response.json()
 
+    @task(4)
+    def get_fib_10(self) -> dict:
+        cookies = self.client.cookies.get_dict()
+        response = self.client.get(
+            f'/user/fib/{randint(28, 34)}', cookies=cookies)
+        if response.status_code != 200:
+            return None
+        return response.json()
+
     @task(2)
     def update_user(self) -> dict:
         user = self.create_user()
@@ -60,7 +70,8 @@ class QuickstartUser(HttpUser):
             return None
         use_cod = user['data']['useCod']
         cookies = self.client.cookies.get_dict()
-        response = self.client.put(f'/user/{use_cod}', json=self.random_user(), cookies=cookies)
+        response = self.client.put(
+            f'/user/{use_cod}', json=self.random_user(), cookies=cookies)
         if response.status_code != 200:
             return None
         return response.json()
