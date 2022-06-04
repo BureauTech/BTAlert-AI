@@ -4,5 +4,5 @@ __pycache__
 .env
 requirements.txt
 venv
-
+.DS_Store
 !.keep
